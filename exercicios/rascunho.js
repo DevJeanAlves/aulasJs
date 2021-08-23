@@ -71,7 +71,7 @@ function countAuthors () {
 countAuthors()
 
 function mostrarLivros (autor) {
-    let livros = [];
+    let books = [];
 
     for(categories of booksByCategory) {
         for(indice of categories.books)
@@ -79,7 +79,7 @@ function mostrarLivros (autor) {
             livros.push(indice.title)
         }
     }
-    console.log(`Livros do autor ${autor}: ${livros.join(', ')}`)
+    console.log(`Livros do autor ${autor}: ${books.join(', ')}`)
 }
 
 mostrarLivros('Augusto Cury')
