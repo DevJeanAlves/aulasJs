@@ -46,40 +46,50 @@ const booksByCategory = [
     },
 ];
 
-let numbOfCategory = booksByCategory.length
+// first stage
+let countCategory = booksByCategory.length
 
-console.log(numbOfCategory)
+console.log(`Total de categorias: ${countCategory}`)
 
-for(let categories of booksByCategory) {
-    console.log(`total de livrosa da ${categories.category}`),
-    console.log(categories.books.length)
+for(let category of booksByCategory) {
+    console.log(`Total de vivros da categoria: ${category.category}`),
+    console.log(category.books.length)
 }
 
-function countAuthors () {
-    let authors = [];
+// end stage
 
-    for(let categories of booksByCategory) {
-        for(let book of categories.books) {
-            if(authors.indexOf(book.author) == -1) {
-                authors.push(book.author)
+// second stage
+let totalAuthors = [];
+
+for (let category of booksByCategory) {
+    for (category of category.books) {
+        if (totalAuthors.indexOf(category.author) == -1) {
+            totalAuthors.push(category.author)
+        }
+    }
+}
+
+console.log(`Total de Autores: ${totalAuthors.length}`)
+// end stage
+
+// third stage
+function showBooks (author) {
+    let bookStock = [];
+
+    for (let category of booksByCategory) {
+        for (category of category.books) {
+            if (category.author === author) {
+                bookStock.push(category.title)
             }
         }
     }
-    console.log(`Total de autores: ${authors.length}`)
+
+    console.log(`Livros do autor ${author}: ${bookStock.join(', ')}\n \n`)
 }
 
-countAuthors()
+showBooks('Robert T. Kiosaki e Sharon L. lechter')
 
-function mostrarLivros (autor) {
-    let books = [];
+// end third and fouth stage
 
-    for(categories of booksByCategory) {
-        for(indice of categories.books)
-        if(indice.author === autor) {
-            livros.push(indice.title)
-        }
-    }
-    console.log(`Livros do autor ${autor}: ${books.join(', ')}`)
-}
 
-mostrarLivros('Augusto Cury')
+
